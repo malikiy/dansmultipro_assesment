@@ -1,0 +1,7 @@
+how to run:
+
+1. copy env file
+2. npm install
+3. npx prisma db pull
+4. npx prisma generate
+5. npm start
