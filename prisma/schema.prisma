@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model jobs {
+  id           String    @id(map: "jobs_pk") @db.VarChar
+  type         String?   @db.VarChar
+  url          String?   @db.VarChar
+  created_at   DateTime? @db.Timestamptz(6)
+  company      String?   @db.VarChar
+  company_url  String?   @db.VarChar
+  location     String?   @db.VarChar
+  title        String?   @db.VarChar
+  description  String?   @db.VarChar
+  how_to_apply String?   @db.VarChar
+  company_logo String?   @db.VarChar
+}
+
+model users {
+  id         String    @id(map: "users_pk") @db.VarChar
+  email      String?   @unique(map: "users_un") @db.VarChar
+  password   String?   @db.VarChar
+  created_at DateTime? @db.Timestamptz(6)
+  created_by String?   @db.VarChar
+  updated_at DateTime? @db.Timestamptz(6)
+  updated_by String?   @db.VarChar
+}
